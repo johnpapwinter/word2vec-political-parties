@@ -2,10 +2,10 @@ import tweepy #https://github.com/tweepy/tweepy
 #import csv
 
 #Twitter API credentials
-consumer_key = "zNsQJuQ4jbQ8NWFUD49G6OXhO"
-consumer_secret = "rYwIlwYOq24BR2ioaCLHZOndFDUrbftibrka4xPB8NjRemR1yB"
-access_key = "1878517706-9lFR0RIYtluCEuveI0McH3UScLjuQv6bbKAYheH"
-access_secret = "zW48PEvliWT0VMzis2jlRGkVNkchVlJj7LKfap4yeI9bH"
+consumer_key = "ΑΑΑ"
+consumer_secret = "ΑΑΑ"
+access_key = "ΑΑΑ"
+access_secret = "ΑΑΑ"
 
 
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
