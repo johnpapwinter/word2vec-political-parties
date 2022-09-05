@@ -3,7 +3,6 @@ from gensim.models.doc2vec import Doc2Vec, TaggedDocument
 from nltk.tokenize import word_tokenize
 import glob, string, re
 
-#data = ["I love machine learning. Its awesome.", "I love coding in python", "I love building chatbots", "they chat amagingly well"]
 data = []
 ids = []
 
@@ -65,7 +64,6 @@ for epoch in range(max_epochs):
 '''print("The most similar doc is:", similar_doc)'''
 print(ids)
 
-#check = ['0', '1', '2', '3', '4', '5', '6']
 check = ['0', '1', '2', '3', '4', '5']
 for i in check:
     print(model.docvecs.most_similar(i))
