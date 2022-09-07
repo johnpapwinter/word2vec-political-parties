@@ -1,5 +1,3 @@
-#from nltk.corpus import stopwords 
-#from nltk.stem.wordnet import WordNetLemmatizer
 from nltk.tokenize import word_tokenize
 import string, glob, re
 
