@@ -3,8 +3,6 @@ from nltk.tokenize import word_tokenize
 from gensim.models import Word2Vec
 from gensim.models.phrases import Phraser, Phrases
 import gensim
-#from nltk.stem.wordnet import WordNetLemmatizer
-#from nltk.corpus import stopwords 
 import ctypes
 import subprocess
 
