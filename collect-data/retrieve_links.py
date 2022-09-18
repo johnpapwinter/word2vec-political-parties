@@ -5,7 +5,7 @@ import re, glob
 import time
 
 
-def DictWriter(dictionary):
+def dictWriter(dictionary):
     x = input("Enter file name ")
     file = open(x, 'a', encoding = 'utf-8')
     for i, k in dictionary.items():
@@ -82,7 +82,7 @@ file = open("link_list.txt", 'r', encoding = 'utf-8')
 link_list = file.readlines()
 print(len(link_list))
 print("List completed")
-''''
+'''
 
 print(len(link_list))
 wikt_dict = {}
@@ -156,6 +156,5 @@ for i in link_list[1:1000]:
     except urllib.error.URLError:
         pass
 
-    var = dd[var]
+    # var = dd[var]
 
-'''

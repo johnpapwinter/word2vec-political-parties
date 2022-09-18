@@ -7,7 +7,7 @@ import ctypes
 import subprocess
 
 
-def Pitchless(text):
+def pitchless(text):
     clean = re.sub('[άὰᾶἀἄἂἆἁἅἃἇᾳᾴᾲᾷᾀᾄᾂᾆᾁᾅᾃᾇ]', 'α', text)
     clean = re.sub('[έὲἐἔἒἑἕἓ]', 'ε', clean)
     clean = re.sub('[ϊΐίὶῖἰἴἶἱἵἳἷ]', 'ι', clean)
@@ -131,7 +131,7 @@ stop = []
 for i in stoplist:
     i = re.sub('\ufeff', '', i)
     i = i.rstrip()
-    i = Pitchless(i)
+    i = pitchless(i)
     stop.append(i)
 
 

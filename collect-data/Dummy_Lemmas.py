@@ -8,7 +8,7 @@ file = file.read()
 temp = []
 print("File open and read")
 for i in file.split():
-    temp.append(Lemmatizer.Lemmatize(i))
+    temp.append(Lemmatizer.lemmatize(i))
 
 k = " ".join(temp)
 new = open("SYRIZA.txt", 'a', encoding = 'utf-8')
