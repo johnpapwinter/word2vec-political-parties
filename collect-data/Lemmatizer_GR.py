@@ -4,8 +4,8 @@ from Lookup_Table_GR import Lookup
 
 class Lemmatizer:
 
-    def lemmatize(word):
+    def lemmatize(self):
         table = Lookup.Table()
-        if word in table:
-            word = table[word]
-        return word
+        if self in table:
+            self = table[self]
+        return self

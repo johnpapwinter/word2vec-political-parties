@@ -5,7 +5,7 @@ import re, glob
 import time
 
 
-def DictWriter(dictionary):
+def dictWriter(dictionary):
     x = input("Enter file name ")
     file = open(x, 'a', encoding = 'utf-8')
     for i, k in dictionary.items():
@@ -14,7 +14,7 @@ def DictWriter(dictionary):
     file.close()
 
 
-def Clear(temp):
+def clear(temp):
     temp = re.sub(r'[^α-ωΑ-Ωά-ώΆ-Ώΐΰ]', ' ', temp)
     temp = re.sub(r'\bθα\b|\bνα\b', ' ', temp)
     temp = re.sub(r'\bέχω\b|\bέχεις\b|\bέχει\b|\bέχουμε\b|\bέχετε\b|\bέχουν\b|\bέχουνε\b', ' ', temp)
@@ -27,7 +27,7 @@ def Clear(temp):
     temp = re.sub(r'\bΣυνοπ\b|\bΠαρατατικός\b|\bΠαρακείμενος\b|\bΣυντελ\b|\bΜέλλ\b|\bΕξ\b|\bΥπερσυντέλικος\b|\bΕνεστώτας\b|\bΑόριστος\b', ' ', temp)
     return temp
 
-def Name_Clear(temp):
+def nameClear(temp):
     temp = re.sub(r'[^α-ωΑ-Ωά-ώΆ-Ώΐΰ]', ' ', temp)
     temp = re.sub(r'\bονομαστική\b', ' ', temp)
     temp = re.sub(r'\bγενική\b', ' ', temp)
@@ -74,7 +74,7 @@ for i in link_list[1:1000]:
         for i in soup.find_all('tbody'):
             if "ονομαστική" in i.get_text().split():
                 temp = i.get_text()
-                Name_Clear(temp)
+                nameClear(temp)
                 #o.append(set(temp.split())
                 for j in set(temp.split()):
                     if j != title:
@@ -82,14 +82,14 @@ for i in link_list[1:1000]:
             if "Ενεστώτας" in i.get_text().split() and "Μέση-Παθητική" not in i.get_text().split():
                 temp = i.get_text()
                 temp = re.sub(r'[^α-ωΑ-Ωά-ώΆ-Ώΐΰ]', ' ', temp)
-                Clear(temp)
+                clear(temp)
                 for j in set(temp.split()):
                     if j != title:
                         wikt_dict.update({j : title})
                 try:
                     if "Ενεστώτας" in soup.tbody.find_next('tbody').get_text().split() and "Μέση-Παθητική" not in soup.tbody.find_next('tbody').get_text().split(): #and "Ευκτική" not in soup.tbody.find_next('tbody').get_text().split():
                         temp = re.sub(r'[^α-ωΑ-Ωά-ώΆ-Ώΐΰ]', ' ', temp)
-                        Clear(temp)
+                        clear(temp)
                         for j in set(temp.split()):
                             if j != title:
                                 wikt_dict.update({j : title})
