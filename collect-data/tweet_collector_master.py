@@ -1,4 +1,4 @@
-import tweepy  # https://github.com/tweepy/tweepy
+import tweepy
 import os
 from dotenv import load_dotenv
 # import csv
