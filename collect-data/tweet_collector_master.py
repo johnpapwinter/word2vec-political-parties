@@ -1,12 +1,14 @@
 import tweepy  # https://github.com/tweepy/tweepy
-
+import os
+from dotenv import load_dotenv
 # import csv
 
 # Twitter API credentials
-consumer_key = "placeholder"
-consumer_secret = "placeholder"
-access_key = "placeholder"
-access_secret = "placeholder"
+load_dotenv()
+consumer_key = os.getenv("CONSUMER_KEY")
+consumer_secret = os.getenv("CONSUMER_SECRET")
+access_key = os.getenv("ACCESS_KEY")
+access_secret = os.getenv("ACCESS_SECRET")
 
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_key, access_secret)
