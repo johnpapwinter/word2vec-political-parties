@@ -6,25 +6,6 @@ list = []
 
 exception = ['ζω', 'δω', 'νδ', 'εε', 'χα']
 
-'''
-def Lemmas(text):
-    stoplist = open("C:/Users/johnp/Desktop/Dissertation/stop_list.txt", 'r', encoding='utf-8')
-    stoplist = stoplist.readlines()
-    stop = []
-    for i in stoplist:
-        i = re.sub('\ufeff', '', i)
-        i = i.rstrip()
-        #i = Pitchless(i)
-        stop.append(i)
-    #text = text.split()
-    text = text.lower()
-    text2 = []
-    for i in text.split():
-          text2.append(Lemmatizer.Lemmatize(i)) #= " ".join(Lemmatizer.Lemmatize(i))
-    text2 = " ".join([i for i in text2 if i not in stop])
-    return text2
-'''
-
 
 def pitchless(text):
     clean = re.sub('[άὰᾶἀἄἂἆἁἅἃἇᾳᾴᾲᾷᾀᾄᾂᾆᾁᾅᾃᾇ]', 'α', text)
