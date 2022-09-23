@@ -1,7 +1,10 @@
-from nltk.tokenize import word_tokenize
-import string, glob, re
-from text_preprocessing import Text_Preprocessing
+import glob
+import re
+import string
 
+from nltk.tokenize import word_tokenize
+
+from text_preprocessing import Text_Preprocessing
 
 exception = ['ζω', 'δω', 'νδ', 'εε', 'χα']
 
@@ -36,7 +39,6 @@ for name in glob.glob("C:/Users/johnp/Desktop/Dissertation/ANEL Website/*"):
         r'''(?i)\b((?:https?://|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:'".,<>?«»“”‘’]))''',
         " ", file)
     file = preprocessor.no_punctuation(file)
-    # file = Lemmas(file)
     file = file.lower()
     file = re.sub(r'\bδιαβάστε περισσότερα\b', ' ', file)
     file = re.sub(r'\bδελτίο τύπου\b', ' ', file)
@@ -46,10 +48,7 @@ for name in glob.glob("C:/Users/johnp/Desktop/Dissertation/ANEL Website/*"):
     file = re.sub('[^α-ω]', ' ', file)
     file = " ".join(file.split())
     file = " ".join([i for i in file.split() if i not in stop])
-    # file = word_tokenize(file)
-    # doc_complete.append(file)
     file = preprocessor.normalize_names(file)
-    # file = " ".join([i for i in file.split() if len(i)>1 and i not in exception])
     file = word_tokenize(file)
     doc_complete.append(file)
 
@@ -64,7 +63,6 @@ for name in glob.glob("C:/Users/johnp/Desktop/Dissertation/Twitter Data/ANEL/*")
     file = open(name, 'r', encoding='utf-8')
     file = file.readlines()
     for tweet in file:
-        # tweet = re.sub(r'\[datetime\.datetime\([0-9]+,\s[0-9]+,\s[0-9]+,\s[0-9]+,\s[0-9]+,\s[0-9]+\),\s\'', '', tweet)
         tweet = re.sub(r'\bdatetime.datetime\b', "", tweet)
         tweet = re.sub('[0-9]|[' + string.punctuation + ']', "", tweet)
         tweet = re.sub('\ufeff', '', tweet)
@@ -76,20 +74,15 @@ for name in glob.glob("C:/Users/johnp/Desktop/Dissertation/Twitter Data/ANEL/*")
                 r'''(?i)\b((?:https?://|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:'".,<>?«»“”‘’]))''',
                 " ", tweet)
             tweet = preprocessor.no_punctuation(tweet)
-            # tweet = Lemmas(tweet)
             tweet = preprocessor.party_catcher(tweet)
             tweet = preprocessor.hellenize_names(tweet)
-            # tweet = tweet.lower().lstrip()
             tweet = tweet.lstrip()
             tweet = tweet.lower()
             tweet = preprocessor.pitchless(tweet)
-            # tweet = word_tokenize(tweet)
-            # doc_complete.append(tweet)
             tweet = re.sub('[^α-ω]', ' ', tweet)
             tweet = " ".join([i for i in tweet.split() if i not in stop])
             tweet = " ".join(tweet.split())
             tweet = preprocessor.normalize_names(tweet)
-            # tweet = " ".join([i for i in tweet.split() if len(i)>1 and i not in exception])
             tweet = word_tokenize(tweet)
             doc_complete.append(tweet)
 

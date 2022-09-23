@@ -1,4 +1,5 @@
-import re, string
+import re
+import string
 
 
 class Text_Preprocessing():

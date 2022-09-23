@@ -1,7 +1,6 @@
 import tweepy
 import os
 from dotenv import load_dotenv
-# import csv
 
 # Twitter API credentials
 load_dotenv()
@@ -91,8 +90,6 @@ for member in pasok:
         print("...%s tweets downloaded so far" % (len(alltweets)))
 
     # transform the tweepy tweets into a 2D array that will populate the csv
-    # outtweets = [[tweet.id_str, tweet.created_at, tweet.text.encode("utf-8")] for tweet in alltweets]
-    # outtweets = [[tweet.id_str, tweet.created_at, tweet.text] for tweet in alltweets]
     outtweets = [[tweet.created_at, tweet.text] for tweet in alltweets]
 
     f = open('%s_tweets.txt' % screen_name, 'a', encoding='utf-8')
@@ -101,8 +98,3 @@ for member in pasok:
         f.write('\n')
     f.close()
 
-# write the csv
-# with open('%s_tweets.csv' % screen_name, 'w', encoding='utf-8') as f:
-#	writer = csv.writer(f)
-#	writer.writerow(["id","created_at","text"])
-#	writer.writerows(outtweets)

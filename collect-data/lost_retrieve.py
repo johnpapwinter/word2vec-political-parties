@@ -1,8 +1,10 @@
-from bs4 import BeautifulSoup as bs
-from urllib.request import urlopen
-import urllib.error
-import re, glob
+import glob
+import re
 import time
+import urllib.error
+from urllib.request import urlopen
+
+from bs4 import BeautifulSoup as bs
 
 
 def dict_writer(dictionary):
@@ -67,16 +69,10 @@ for i in link_list[1:1000]:
         soup = bs(html, 'html.parser')
         title = soup.title.get_text()
         title = re.sub(r'\b - Βικιλεξικό\b', '', title)
-        # try:
-        #   title = soup.title.get_text()
-        #  title = re.sub(r'\b - Βικιλεξικό\b', '', title)
-        # except AttributeError:
-        #   title = ""
         for i in soup.find_all('tbody'):
             if "ονομαστική" in i.get_text().split():
                 temp = i.get_text()
                 name_clear(temp)
-                # o.append(set(temp.split())
                 for j in set(temp.split()):
                     if j != title:
                         wikt_dict.update({j: title})
@@ -98,7 +94,6 @@ for i in link_list[1:1000]:
                                 wikt_dict.update({j: title})
                 except AttributeError:
                     pass
-                # o.append(set(temp.split())
     except urllib.error.HTTPError:
         pass
     except urllib.error.URLError:

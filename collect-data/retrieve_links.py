@@ -1,8 +1,10 @@
-from bs4 import BeautifulSoup as bs
-from urllib.request import urlopen
-import urllib.error
-import re, glob
+import glob
+import re
 import time
+import urllib.error
+from urllib.request import urlopen
+
+from bs4 import BeautifulSoup as bs
 
 
 def dict_writer(dictionary):
